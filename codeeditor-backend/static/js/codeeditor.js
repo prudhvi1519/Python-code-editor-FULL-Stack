@@ -14,18 +14,39 @@ const editor = CodeMirror(document.getElementById("editor"), {
 });
 editor.setSize("100%", "100%");
 
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.startsWith(name + '=')) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
 runBtn.addEventListener("click", () => {
   const codeInput = editor.getValue();
   const inputData = inputArea.value;
 
-  fetch("https://python-code-editor-full-stack.onrender.com/run_code", {
+  fetch("/run/", { // Changed from /run_code to /run/
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      "X-CSRFToken": getCookie("csrftoken") // Add CSRF token
     },
     body: JSON.stringify({ code: codeInput, input: inputData })
   })
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
   .then(data => {
     if (data.error) {
       outputArea.textContent = "Error: " + data.error;
