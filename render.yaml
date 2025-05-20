@@ -6,6 +6,7 @@ services:
     buildCommand: |
       cd codeeditor-backend
       pip install -r ../requirements.txt
+      python manage.py collectstatic --noinput
     startCommand: |
       cd codeeditor-backend
       python manage.py migrate
