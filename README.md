@@ -38,13 +38,13 @@ An interactive Python code editor built with a **Django backend** and a **CodeMi
     │  ├── settings.py  
     │  └── urls.py  
     ├── codeexecutor/           # Django app for code execution  
-    │  ├── static/              # Static files
-    │  │   ├── codeeditor.css
-    │  │   └── codeeditor.js
     │  ├── templates/           # Frontend
     │  │   └── index.html
     │  ├── views.py  
-    │  └── urls.py  
+    │  └── urls.py 
+    ├── static/              # Static files
+    │  ├── codeeditor.css
+    │  └── codeeditor.js
     └── Docker/                 # Docker setup  
        ├── Dockerfile  
        └── run_code.sh  
