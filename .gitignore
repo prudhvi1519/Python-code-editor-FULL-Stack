@@ -25,7 +25,7 @@ __pycache__/
 **/migrations/*.pyc
 
 # Static and media files (collected/generated)
-staticfiles/
+#staticfiles/
 media/
 
 # ====================

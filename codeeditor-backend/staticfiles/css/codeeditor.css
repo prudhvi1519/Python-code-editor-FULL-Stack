@@ -1,0 +1,233 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px; /* Changed from 1000px to match reference */
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  height: 75vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.main-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  gap: 4%;
+}
+
+.left-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+}
+
+.left-panel label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #2e7d32;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+#editor {
+  flex-grow: 1;
+  border-radius: 5px;
+  margin: 0 0 16px 0;
+}
+
+.CodeMirror {
+  padding: 16px;
+  border-radius: 5px;
+  border: 1.5px solid rgba(0, 128, 0, 0.3);
+  font-size: 16px;
+  font-family: 'Source Code Pro', monospace !important;
+  background-color: #fafafa !important;
+  box-shadow: 0 2px 5px rgba(0, 128, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  height: 100% !important;
+}
+
+.CodeMirror-focused {
+  box-shadow: 0 0 8px #2e7d32aa !important;
+  outline: none;
+}
+
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+}
+
+.input-container {
+  flex: 1;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #2e7d32;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+#inputArea {
+  flex-grow: 1;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 16px;
+  padding: 16px;
+  border: 1.5px solid rgba(0, 128, 0, 0.3);
+  border-radius: 5px;
+  resize: none;
+  background-color: #fafafa;
+  box-shadow: 0 2px 5px rgba(0, 128, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  margin: 0 0 16px 0;
+}
+
+#inputArea:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 8px #2e7d32aa;
+  outline: none;
+  background-color: #fff;
+}
+
+.output-container {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.output-container label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #2e7d32;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+#outputArea {
+  flex-grow: 1;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 16px;
+  padding: 16px;
+  border: 1.5px solid rgba(0, 128, 0, 0.3);
+  border-radius: 5px;
+  background-color: #fafafa;
+  box-shadow: 0 2px 5px rgba(0, 128, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  white-space: pre-wrap;
+  margin: 0 0 16px 0;
+}
+
+#outputArea:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 8px #2e7d32aa;
+  outline: none;
+  background-color: #fff;
+}
+
+#runBtn {
+  color: #2e7d32;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1.5px solid #2e7d32;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgba(0, 128, 0, 0.25);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  margin: 15px auto;
+  display: block;
+}
+
+#runBtn:hover {
+  background-color: #388e3c;
+  color: white;
+  box-shadow: 0 4px 10px rgba(56, 142, 60, 0.6);
+}
+
+.spacer {
+  margin-bottom: 2rem;
+}
+
+.mobile-only {
+  display: none;
+}
+
+h2 {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    gap: 4%;
+    height: auto;
+  }
+
+  .mobile-only {
+    display: block;
+    margin-bottom: 2rem;
+  }
+
+  .container {
+    height: auto;
+    padding: 8px; /* Reduced from 12px to 8px to match reference */
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    padding: 0 8px; /* Changed from 10px to 8px to match reference */
+  }
+
+  #editor,
+  .CodeMirror {
+    height: 240px !important;
+    min-height: unset;
+  }
+
+  .CodeMirror-gutters {
+    height: 100% !important;
+  }
+
+  .CodeMirror-scroll {
+    height: 100% !important;
+  }
+
+  #inputArea,
+  #outputArea {
+    height: 100px;
+  }
+
+  .input-container,
+  .output-container {
+    flex: unset;
+    margin-bottom: 16px;
+  }
+}
