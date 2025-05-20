@@ -1,0 +1,90 @@
+# ====================
+# PYTHON & DJANGO
+# ====================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+
+# Local Django settings
+.env
+.env.*
+
+# Django migration files
+**/migrations/
+**/migrations/*.py
+**/migrations/*.pyc
+
+# Static and media files (collected/generated)
+staticfiles/
+media/
+
+# ====================
+# FRONTEND (Vanilla)
+# ====================
+
+# Node modules (if any JS build system used in future)
+node_modules/
+dist/
+build/
+
+# ====================
+# OS FILES
+# ====================
+.DS_Store
+Thumbs.db
+
+# ====================
+# VENV / PIP / TOOLS
+# ====================
+
+# Python virtualenv
+venv/
+env/
+ENV/
+.venv/
+.pip-selfcheck.json
+
+# ====================
+# DOCKER
+# ====================
+# Keep Dockerfile for deployment
+*.pid
+docker-compose.yml
+
+# ====================
+# EDITOR / IDE
+# ====================
+
+# VSCode
+.vscode/
+
+# JetBrains IDEs
+.idea/
+
+# Backup files
+*.bak
+*~
+
+# ====================
+# TESTING / COVERAGE
+# ====================
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Git end-of-line normalization
+* text=auto
+*.sh text eol=lf
+
+# Allow necessary deploy scripts
+!manage.py

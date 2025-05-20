@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Online Code Editor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/python/python.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'codeeditor.css' %}" />
+</head>
+<body>
+  <h2><strong style="color: #2e7d32;">PYTHON</strong> Online Code Editor</h2>
+  <div class="container">
+    <div class="spacer mobile-only"></div>
+    <div class="main-content">
+      <div class="left-panel">
+        <label for="editor">Code Area</label>
+        <div id="editor"></div>
+      </div>
+      <div class="right-panel">
+        <div class="input-container">
+          <label for="inputArea">User Input</label>
+          <textarea id="inputArea" placeholder="Enter input for your program"></textarea>
+        </div>
+        <div class="output-container">
+          <label for="outputArea">Output</label>
+          <pre id="outputArea"></pre>
+        </div>
+        <button id="runBtn">Run Code</button>
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'codeeditor.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: code-editor-backend
+    env: python
+    plan: free
+    buildCommand: |
+      cd codeeditor-backend
+      pip install -r ../requirements.txt
+    startCommand: |
+      cd codeeditor-backend
+      python manage.py migrate
+      python manage.py runserver 0.0.0.0:8000
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "True"
