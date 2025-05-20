@@ -18,7 +18,7 @@ runBtn.addEventListener("click", () => {
   const codeInput = editor.getValue();
   const inputData = inputArea.value;
 
-  fetch("http://127.0.0.1:8000/run/", {
+  fetch("https://python-code-editor-full-stack.onrender.com/api/run/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

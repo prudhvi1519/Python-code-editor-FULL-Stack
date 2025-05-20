@@ -9,9 +9,12 @@ import os
 @csrf_exempt
 def run_code(request):
     print(f"Request method: {request.method}")
+    print(f"Request headers: {request.headers}")
+    print(f"Request body raw: {request.body}")
+
     if request.method == 'POST':
         try:
-            data = json.loads(request.body)
+            data = json.loads(request.body.decode('utf-8'))
             code = data.get('code', '')
             user_input = data.get('input', '')
 
@@ -46,12 +49,11 @@ def run_code(request):
             })
 
         except Exception as e:
+            print(f"Exception: {e}")
             return JsonResponse({'error': str(e)}, status=500)
-    
+
     else:
         return JsonResponse({'error': 'POST request required'}, status=405)
-
-    return JsonResponse({'error': 'POST request required'}, status=405)
 
 @csrf_exempt
 def home(request):
