@@ -126,4 +126,3 @@ An interactive Python code editor built with a **Django backend** and a **CodeMi
 
 ## 📜 License
 This project is licensed under the **MIT License**.  
-Feel free to use, modify, and distribute as needed.
